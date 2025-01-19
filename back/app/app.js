@@ -3,6 +3,8 @@ import morgan from "morgan";
 import path from "path";
 import cors from "cors";
 
+import ExampleRoutes from "../routes/ExampleRoute.js";
+
 global.basePath = path.resolve('./')
 
 const app = express()
@@ -14,10 +16,6 @@ app.get('/', (req, res) => {
     res.send("Hola papus Waza")
 })
 
-app.get('/example', (req, res) => {
-    res.json({
-        response: "This is a sample text"
-    })
-})
+app.use('/example', ExampleRoutes)
 
 export { app }

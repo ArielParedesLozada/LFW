@@ -10,15 +10,15 @@ const select = async (id) => {
         }
     })
     if (Example_item) {
-        return json({
+        return {
             ok: true,
             data: Example_item
-        })
+        }
     } else {
-        return json({
+        return {
             ok: false,
             error: "Error"
-        })     
+        }
     }
 }
 const ExampleController = {

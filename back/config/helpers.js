@@ -16,15 +16,15 @@ const select = async (id) => {
         }
     })
     if (${model}_item) {
-        return json({
+        return {
             ok: true,
             data: ${model}_item
-        })
+        }
     } else {
-        return json({
+        return {
             ok: false,
             error: "Error"
-        })     
+        }    
     }
 }
 const ${model}Controller = {
@@ -63,6 +63,23 @@ export {
     return text
 }
 
+function routeContent(model) {
+    const text = `
+import express from "express";
+import { ${model}Controller } from "../controllers/${model}Controller.js";
+
+const router = express.Router()
+router.get('/:id', async (req, res) => {
+    const id = parseInt(req.params.id)
+    const result = await ${model}Controller.select(id)
+    res.json(result)
+})
+
+export default router
+    `
+    return text
+}
+
 async function createFile(fileName, content, fileLocation) {
     try {
         const filePath = path.join( global.basePath, fileLocation, `${fileName}.js`)
@@ -90,6 +107,11 @@ async function parseFile(fileName, type) {
             fileLocation = '/controllers/'
             content = controllerContent(fileName)
             result = await createFile(`${fileName}Controller`, content, fileLocation)
+            break;
+        case "route":
+            fileLocation = '/routes/'
+            content = routeContent(fileName)
+            result = await createFile(`${fileName}Route`, content, fileLocation)
             break;
         default:
             result = false

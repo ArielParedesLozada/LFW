@@ -26,7 +26,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={page}></Route>
-        <Route path='/example' element={<ExamplePage/>}></Route>
+        <Route path='/example/:id' element={<ExamplePage/>}></Route>
       </Routes>
     </Router>
   )
