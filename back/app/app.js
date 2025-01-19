@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import morgan from "morgan";
 import path from "path";
 import cors from "cors";
@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
     res.send("Hola papus Waza")
 })
 
-app.get('/sigma', (req, res) => {
+app.get('/example', (req, res) => {
     res.json({
-        papu: "waza"
+        response: "This is a sample text"
     })
 })
 

@@ -1,19 +1,12 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import reactLogo from './assets/react.svg'
-import './App.css'
-import Example from "./components/Example.jsx";
+import ExamplePage from "./pages/ExamplePage.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
 
   const page = (
     <>
-      <div>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -32,8 +25,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/react' element={page}></Route>
-        <Route path='/example' element={<Example/>}></Route>
+        <Route path='/' element={page}></Route>
+        <Route path='/example' element={<ExamplePage/>}></Route>
       </Routes>
     </Router>
   )
