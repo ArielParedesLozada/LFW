@@ -1,6 +1,6 @@
 
 import express from "express";
-import { ExampleController } from "../controllers/ExampleController.js";
+import ExampleController from "../controllers/ExampleController.js";
 
 const router = express.Router()
 router.get('/:id', async (req, res) => {

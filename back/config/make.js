@@ -1,4 +1,4 @@
-import { parseFile } from "./helpers.js";
+import { parseFile } from "./helpers/makeHelpers.js";
 
 const args = process.argv
 
@@ -15,7 +15,6 @@ async function parse(argumentos) {
     let nombre = argumentos[3]
     let result;
 
-    console.log("Comandos")
     result = await parseFile(nombre, opcion)
     return result
 }

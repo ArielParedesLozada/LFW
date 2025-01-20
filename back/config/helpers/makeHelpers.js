@@ -5,7 +5,7 @@ global.basePath = path.resolve('./back/')
 
 function controllerContent(model) {
     const text = `
-import { ${model} } from "../models/${model}.js"
+import ${model} from "../models/${model}.js"
 //Controller logic
 //Example
 const select = async (id) => {
@@ -31,7 +31,7 @@ const ${model}Controller = {
     select,
 }
 
-export { ${model}Controller }
+export default ${model}Controller
     `
     return text
 }
@@ -56,9 +56,7 @@ ${model}.init({
     modelName: '${model}'
 })
 
-export {
-    ${model}
-}
+export default  ${model}
     `
     return text
 }
@@ -66,7 +64,7 @@ export {
 function routeContent(model) {
     const text = `
 import express from "express";
-import { ${model}Controller } from "../controllers/${model}Controller.js";
+import ${model}Controller from "../controllers/${model}Controller.js";
 
 const router = express.Router()
 router.get('/:id', async (req, res) => {

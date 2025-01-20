@@ -17,7 +17,5 @@ Example.init({
     modelName: 'Example'
 })
 
-export {
-    Example
-}
+export default Example
     

@@ -1,5 +1,5 @@
 
-import { Example } from "../models/Example.js"
+import Example from "../models/Example.js"
 //Controller logic
 //Example
 const select = async (id) => {
@@ -25,5 +25,5 @@ const ExampleController = {
     select,
 }
 
-export { ExampleController }
+export default ExampleController
     
