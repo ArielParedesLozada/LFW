@@ -16,10 +16,6 @@ async function parse(argumentos) {
     let result;
 
     console.log("Comandos")
-    for (let index = 0; index < argumentos.length; index++) {
-        const element = argumentos[index];
-        console.log(element);
-    }
     result = await parseFile(nombre, opcion)
     return result
 }

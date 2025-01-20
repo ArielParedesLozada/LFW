@@ -113,6 +113,17 @@ async function parseFile(fileName, type) {
             content = routeContent(fileName)
             result = await createFile(`${fileName}Route`, content, fileLocation)
             break;
+        case "all":
+            fileLocation = '/models/'
+            content = modelContent(fileName)
+            result = await createFile(fileName, content, fileLocation)
+            fileLocation = '/controllers/'
+            content = controllerContent(fileName)
+            result = result && (await createFile(`${fileName}Controller`, content, fileLocation))
+            fileLocation = '/routes/'
+            content = routeContent(fileName)
+            result = result && (await createFile(`${fileName}Route`, content, fileLocation))
+            break;
         default:
             result = false
             break;

@@ -23,7 +23,7 @@ Inicia el servidor del frontend
 
 Crea un modelo, vista o ruta, con el nombre especificado
 
-**npm run make --all nombre**
+**npm run make all nombre**
 
 Crea modelo, vista y controlador de un elemento con el nombre especificado
 

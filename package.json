@@ -8,7 +8,8 @@
     "start": "node ./index.js",
     "dev:back": "nodemon  ./index.js",
     "dev:front": "vite --config front/vite.config.js",
-    "make": "node ./back/config/parser.js",
+    "make": "node ./back/config/make.js",
+    "migrate:all": "node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
